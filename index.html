@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваня • Тачки | Дрифт | Размещение</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        :root {
+            --neon: #00ff9d;
+        }
+        
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .title-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-bg {
+            background: radial-gradient(circle at 50% 30%, rgba(0, 255, 157, 0.15) 0%, transparent 70%),
+                        linear-gradient(90deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+
+        .neon-text {
+            text-shadow: 
+                0 0 10px var(--neon),
+                0 0 20px var(--neon),
+                0 0 40px var(--neon);
+        }
+
+        .car-wheel {
+            animation: spin 1.5s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .drift-line {
+            animation: drift 4s linear infinite;
+        }
+
+        @keyframes drift {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(300%); }
+        }
+
+        .modal {
+            animation: modalPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+    </style>
+</head>
+<body class="bg-[#0a0a0a] text-white overflow-x-hidden">
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-[#00ff9d] rounded-2xl flex items-center justify-center text-black font-bold text-2xl rotate-12">🚗</div>
+                <h1 class="title-font text-3xl tracking-tighter">ВАНЯ</h1>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-lg">
+                <a href="#about" class="hover:text-[#00ff9d] flex items-center gap-1"><i class="fa-solid fa-circle-info"></i> Обо мне</a>
+                <a href="#experience" class="hover:text-[#00ff9d] flex items-center gap-1"><i class="fa-solid fa-timeline"></i> Карьера</a>
+                <a href="#skills" class="hover:text-[#00ff9d] flex items-center gap-1"><i class="fa-solid fa-wrench"></i> Шарю в</a>
+                <a href="#services" class="hover:text-[#00ff9d] flex items-center gap-1"><i class="fa-solid fa-handshake"></i> Услуги</a>
+                <a href="#donate" class="hover:text-[#00ff9d] flex items-center gap-1"><i class="fa-solid fa-heart"></i> Донат</a>
+            </div>
+
+            <a href="#donate" 
+               class="px-6 py-3 bg-[#00ff9d] hover:bg-white text-black font-semibold rounded-3xl flex items-center gap-2 text-lg shadow-[0_0_25px_#00ff9d]">
+                <i class="fa-solid fa-gas-pump"></i>
+                НА БЕНЗ
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="hero" class="hero-bg min-h-screen flex items-center pt-20 relative overflow-hidden">
+        <!-- Анимированные линии дрифта -->
+        <div class="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#00ff9d]/30 to-transparent drift-line"></div>
+        <div class="absolute top-2/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#00ff9d]/20 to-transparent drift-line" style="animation-delay: 1.2s"></div>
+        
+        <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-3 rounded-3xl border border-white/20 text-sm uppercase tracking-[2px]">
+                    <div class="w-3 h-3 bg-[#00ff9d] rounded-full animate-pulse"></div>
+                    СЕГОДНЯ НА СКЛАДЕ, ЗАВТРА НА ДРИФТЕ
+                </div>
+                
+                <h1 class="title-font text-8xl md:text-[110px] leading-none font-semibold tracking-tighter neon-text">
+                    ВАНЯ
+                </h1>
+                
+                <p class="text-4xl md:text-5xl font-medium text-[#00ff9d]">
+                    Тачки • Дрифт (иногда) • Размещение 🔥
+                </p>
+                
+                <div class="flex items-center gap-4 text-xl">
+                    <div class="flex -space-x-4">
+                        <div class="w-10 h-10 bg-[#1a1a1a] border-2 border-[#00ff9d] rounded-2xl flex items-center justify-center text-2xl">🚗</div>
+                        <div class="w-10 h-10 bg-[#1a1a1a] border-2 border-[#00ff9d] rounded-2xl flex items-center justify-center text-2xl">🏎️</div>
+                    </div>
+                    <p class="text-white/70">Работал в Купере. Теперь мастер размещения на складе ФИТ</p>
+                </div>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a href="#donate" 
+                       class="px-10 py-5 bg-[#00ff9d] hover:scale-105 text-black font-bold text-2xl rounded-3xl flex items-center gap-3 shadow-[0_0_40px_-10px] shadow-[#00ff9d]">
+                        <i class="fa-solid fa-gas-pump fa-beat"></i>
+                        НА БЕНЗИН, БРО
+                    </a>
+                    <a href="#about" 
+                       class="px-10 py-5 border-2 border-white/60 hover:border-[#00ff9d] hover:text-[#00ff9d] font-medium text-2xl rounded-3xl flex items-center">
+                        УЗНАТЬ ИСТОРИЮ →
+                    </a>
+                </div>
+                
+                <!-- Статус -->
+                <div class="inline-flex items-center gap-3 px-6 py-3 bg-white/5 rounded-3xl border border-white/10">
+                    <i class="fa-solid fa-car-side text-[#00ff9d]"></i>
+                    <span class="text-white/80">Сейчас: <span class="font-semibold text-[#00ff9d]">Размещение на складе ФИТ</span></span>
+                    <div class="w-2 h-2 bg-[#00ff9d] rounded-full animate-ping"></div>
+                </div>
+            </div>
+            
+            <!-- Правая часть с "машиной" -->
+            <div class="relative flex justify-center items-center">
+                <div class="relative">
+                    <!-- Главная тачка -->
+                    <div class="text-[280px] md:text-[320px] leading-none drop-shadow-2xl animate-[float_3s_ease-in-out_infinite]">
+                        🏎️
+                    </div>
+                    
+                    <!-- Колёса с анимацией -->
+                    <div class="absolute bottom-16 left-28 text-8xl car-wheel">⚙️</div>
+                    <div class="absolute bottom-16 right-28 text-8xl car-wheel" style="animation-delay: 0.6s">⚙️</div>
+                    
+                    <!-- Дым от дрифта -->
+                    <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-6xl opacity-40 animate-[driftSmoke_2s_linear_infinite]">💨</div>
+                    <div class="absolute -bottom-8 left-1/3 text-5xl opacity-30 animate-[driftSmoke_2.4s_linear_infinite]" style="animation-delay: 0.5s">💨</div>
+                    
+                    <!-- Неоновая подпись -->
+                    <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black/80 px-8 py-2 rounded-3xl border border-[#00ff9d] text-[#00ff9d] font-bold text-xl flex items-center gap-3 backdrop-blur-md">
+                        <i class="fa-solid fa-fire-flame-curved"></i>
+                        ДРИФТ СЛУЧАЙНО
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-12 left-1/2 flex flex-col items-center">
+            <p class="text-xs tracking-widest mb-2 text-white/40">ПРОКРУТИ ДЛЯ ИСТОРИИ</p>
+            <i class="fa-solid fa-chevron-down text-4xl animate-bounce text-[#00ff9d]"></i>
+        </div>
+        
+        <!-- Скролл индикатор -->
+        <div class="absolute bottom-8 right-8 hidden xl:flex flex-col items-end text-xs font-mono">
+            <div class="flex items-center gap-2">
+                <span class="text-[#00ff9d]">04:25</span>
+                <span class="text-white/40">СЕГОДНЯ В ТАЧКЕ</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about" class="section max-w-7xl mx-auto px-8 py-24 border-t border-white/10">
+        <div class="grid md:grid-cols-12 gap-16">
+            <div class="md:col-span-5">
+                <div class="sticky top-28">
+                    <span class="text-[#00ff9d] font-mono text-sm">01 / ИСТОРИЯ</span>
+                    <h2 class="title-font text-6xl font-semibold tracking-tighter leading-none mt-3">КТО ТАКОЙ ВАНЯ?</h2>
+                    <p class="mt-6 text-2xl text-white/70">Парень, который шарит в тачках по-настоящему.</p>
+                </div>
+            </div>
+            
+            <div class="md:col-span-7 space-y-8 text-lg leading-relaxed">
+                <p class="text-white/90">
+                    Привет, я Ваня. Люблю тачки так, что даже во сне вижу, как дрифтую на парковке у ТЦ.
+                </p>
+                <p class="text-white/90">
+                    Раньше работал в <span class="text-[#00ff9d] font-semibold">Купере</span>. Там было кайфово: бабки летели рекой, 
+                    клиенты давали на бензин щедро, машина всегда была заправлена под пробку. 
+                    Зарплата — огонь, настроение — ещё лучше.
+                </p>
+                <p class="text-white/90">
+                    Потом начали резать зарплату… и стало грустно. Но жизнь — она такая. 
+                    Мой кореш <span class="font-semibold">Дэн</span> хотел взять меня к себе, но не срослось.
+                </p>
+                <p class="text-white/90 bg-white/5 border border-white/10 rounded-3xl p-8">
+                    Теперь я на <span class="text-[#00ff9d]">складе ФИТ</span>. 
+                    И знаешь что? Я здесь тоже на своём месте. <strong>Мастер размещения</strong>. 
+                    Полки ровные, коробки по местам, всё по системе. Как в тачке — порядок под капотом.
+                </p>
+                <div class="flex items-center gap-6 pt-6">
+                    <div class="text-center">
+                        <div class="text-5xl font-bold text-[#00ff9d]">∞</div>
+                        <div class="text-sm text-white/50">ТАЧКИ В ГОЛОВЕ</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl font-bold text-[#00ff9d]">100%</div>
+                        <div class="text-sm text-white/50">РАЗМЕЩЕНИЕ НА СКЛАДЕ</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl font-bold text-[#00ff9d]">50/50</div>
+                        <div class="text-sm text-white/50">ДРИФТ (иногда)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section max-w-7xl mx-auto px-8 py-24 bg-white/5 border-t border-b border-white/10">
+        <div class="max-w-4xl mx-auto">
+            <span class="text-[#00ff9d] font-mono text-sm">02 / КАРЬЕРА</span>
+            <h2 class="title-font text-6xl font-semibold tracking-tighter leading-none mt-3 mb-16">Как я докатился до жизни такой</h2>
+            
+            <div class="space-y-12">
+                <!-- Купер -->
+                <div class="flex flex-col md:flex-row gap-8 items-start group">
+                    <div class="w-40 shrink-0">
+                        <div class="text-[#00ff9d] text-sm font-mono">2019 — 2024</div>
+                        <div class="text-2xl font-semibold mt-1">КУПЕР</div>
+                    </div>
+                    <div class="flex-1 bg-[#111] rounded-3xl p-8 border border-transparent group-hover:border-[#00ff9d]/50">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-3xl font-semibold">Продавец / Менеджер по тачкам</h3>
+                                <p class="text-[#00ff9d] text-xl mt-2">Зарабатывал 🔥 + чаевые на бенз</p>
+                            </div>
+                            <i class="fa-solid fa-car text-5xl text-[#00ff9d]/30 group-hover:text-[#00ff9d]/80"></i>
+                        </div>
+                        <p class="mt-6 text-white/70 text-lg">
+                            Клиенты в восторге, машина всегда полная, зарплата позволяла жить по-королевски. 
+                            Потом резали, резали… и я ушёл с достоинством.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Переход -->
+                <div class="flex items-center justify-center gap-4 text-white/40 text-sm uppercase tracking-widest">
+                    <div class="flex-1 h-px bg-gradient-to-r from-transparent to-white/30"></div>
+                    ПОВОРОТ
+                    <div class="flex-1 h-px bg-gradient-to-l from-transparent to-white/30"></div>
+                </div>
+                
+                <!-- Склад -->
+                <div class="flex flex-col md:flex-row gap-8 items-start group">
+                    <div class="w-40 shrink-0">
+                        <div class="text-[#00ff9d] text-sm font-mono">2025 — сейчас</div>
+                        <div class="text-2xl font-semibold mt-1">СКЛАД ФИТ</div>
+                    </div>
+                    <div class="flex-1 bg-[#111] rounded-3xl p-8 border border-transparent group-hover:border-[#00ff9d]/50">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-3xl font-semibold">Специалист по размещению</h3>
+                                <p class="text-[#00ff9d] text-xl mt-2">Друг Дэн не взял → стал королём полок</p>
+                            </div>
+                            <i class="fa-solid fa-boxes-stacked text-5xl text-[#00ff9d]/30 group-hover:text-[#00ff9d]/80"></i>
+                        </div>
+                        <p class="mt-6 text-white/70 text-lg">
+                            Дэн хотел меня к себе, но не получилось. Зато теперь я здесь — всё по местам, 
+                            ни одной коробки не потеряно. И да, иногда после смены всё ещё дрифтую на стоянке.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section max-w-7xl mx-auto px-8 py-24">
+        <span class="text-[#00ff9d] font-mono text-sm">03 / В ЧЁМ ШАРЮ</span>
+        <h2 class="title-font text-6xl font-semibold tracking-tighter leading-none mt-3 mb-12">Мои суперспособности</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+            <div class="bg-gradient-to-br from-[#111] to-black p-8 rounded-3xl hover:scale-105 hover:shadow-[0_0_40px_-10px] hover:shadow-[#00ff9d]">
+                <i class="fa-solid fa-car text-5xl mb-6 text-[#00ff9d]"></i>
+                <h3 class="text-3xl font-semibold">Тачки</h3>
+                <p class="text-white/60 mt-4">От атмосферы до турбо. Знаю каждую модель наизусть</p>
+                <div class="mt-8 h-2 bg-white/10 rounded-full overflow-hidden"><div class="h-2 w-[95%] bg-[#00ff9d]"></div></div>
+            </div>
+            <div class="bg-gradient-to-br from-[#111] to-black p-8 rounded-3xl hover:scale-105 hover:shadow-[0_0_40px_-10px] hover:shadow-[#00ff9d]">
+                <i class="fa-solid fa-road text-5xl mb-6 text-[#00ff9d]"></i>
+                <h3 class="text-3xl font-semibold">Дрифт</h3>
+                <p class="text-white/60 mt-4">Иногда. Но когда да — то очень красиво</p>
+                <div class="mt-8 h-2 bg-white/10 rounded-full overflow-hidden"><div class="h-2 w-[65%] bg-[#00ff9d]"></div></div>
+            </div>
+            <div class="bg-gradient-to-br from-[#111] to-black p-8 rounded-3xl hover:scale-105 hover:shadow-[0_0_40px_-10px] hover:shadow-[#00ff9d]">
+                <i class="fa-solid fa-boxes-packing text-5xl mb-6 text-[#00ff9d]"></i>
+                <h3 class="text-3xl font-semibold">Размещение</h3>
+                <p class="text-white/60 mt-4">Склад ФИТ — мой второй дом. Всё по полочкам за 8 секунд</p>
+                <div class="mt-8 h-2 bg-white/10 rounded-full overflow-hidden"><div class="h-2 w-[100%] bg-[#00ff9d]"></div></div>
+            </div>
+            <div class="bg-gradient-to-br from-[#111] to-black p-8 rounded-3xl hover:scale-105 hover:shadow-[0_0_40px_-10px] hover:shadow-[#00ff9d]">
+                <i class="fa-solid fa-gas-pump text-5xl mb-6 text-[#00ff9d]"></i>
+                <h3 class="text-3xl font-semibold">Бензин</h3>
+                <p class="text-white/60 mt-4">Знаю где самый вкусный 98-й и как не переплатить</p>
+                <div class="mt-8 h-2 bg-white/10 rounded-full overflow-hidden"><div class="h-2 w-[90%] bg-[#00ff9d]"></div></div>
+            </div>
+            <div class="bg-gradient-to-br from-[#111] to-black p-8 rounded-3xl hover:scale-105 hover:shadow-[0_0_40px_-10px] hover:shadow-[#00ff9d]">
+                <i class="fa-solid fa-wrench text-5xl mb-6 text-[#00ff9d]"></i>
+                <h3 class="text-3xl font-semibold">Тюнинг</h3>
+                <p class="text-white/60 mt-4">Советы по железу и стайлингу — бесплатно (почти)</p>
+                <div class="mt-8 h-2 bg-white/10 rounded-full overflow-hidden"><div class="h-2 w-[85%] bg-[#00ff9d]"></div></div>
+            </div>
+            <div class="bg-gradient-to-br from-[#111] to-black p-8 rounded-3xl hover:scale-105 hover:shadow-[0_0_40px_-10px] hover:shadow-[#00ff9d]">
+                <i class="fa-solid fa-users text-5xl mb-6 text-[#00ff9d]"></i>
+                <h3 class="text-3xl font-semibold">Общение</h3>
+                <p class="text-white/60 mt-4">С клиентами, с кладовщиками, с Дэнем — везде свой</p>
+                <div class="mt-8 h-2 bg-white/10 rounded-full overflow-hidden"><div class="h-2 w-[88%] bg-[#00ff9d]"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section max-w-7xl mx-auto px-8 py-24 bg-[#111] rounded-[4rem] mx-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="text-[#00ff9d] font-mono text-sm">04 / УСЛУГИ</span>
+            <h2 class="title-font text-6xl font-semibold tracking-tighter leading-none mt-3">Что я могу для тебя сделать</h2>
+            <p class="text-white/60 mt-6 max-w-md mx-auto">От совета по тачке до помощи на складе. Всё по-братски.</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8 mt-16">
+            <div class="bg-black/50 rounded-3xl p-8 text-center hover:-translate-y-3">
+                <div class="text-7xl mb-6">🏎️</div>
+                <h3 class="text-3xl font-semibold mb-2">Консультация по тачкам</h3>
+                <p class="text-white/60 mb-8">Выбор машины, тюнинг, где купить запчасти — 30 минут моего опыта</p>
+                <span class="text-[#00ff9d] text-xl font-mono">от 1500 ₽</span>
+            </div>
+            <div class="bg-black/50 rounded-3xl p-8 text-center hover:-translate-y-3 border-2 border-[#00ff9d]">
+                <div class="text-7xl mb-6">💨</div>
+                <h3 class="text-3xl font-semibold mb-2">Мастер-класс по дрифту</h3>
+                <p class="text-white/60 mb-8">Теория + видео-разбор. Иногда даже выезжаем на площадку</p>
+                <span class="text-[#00ff9d] text-xl font-mono">от 3000 ₽</span>
+                <div class="mt-2 text-xs text-[#00ff9d] uppercase">самый популярный</div>
+            </div>
+            <div class="bg-black/50 rounded-3xl p-8 text-center hover:-translate-y-3">
+                <div class="text-7xl mb-6">📦</div>
+                <h3 class="text-3xl font-semibold mb-2">Помощь на складе</h3>
+                <p class="text-white/60 mb-8">Оптимизация размещения, инвентаризация, советы по логистике</p>
+                <span class="text-[#00ff9d] text-xl font-mono">от 2000 ₽ / смена</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- DONATE -->
+    <section id="donate" class="section max-w-7xl mx-auto px-8 py-24">
+        <div class="grid md:grid-cols-12 gap-16 items-center">
+            <div class="md:col-span-5">
+                <span class="text-[#00ff9d] font-mono text-sm">05 / ДАЙ НА БЕНЗ</span>
+                <h2 class="title-font text-6xl font-semibold tracking-tighter leading-none mt-3">Поддержи Ваню</h2>
+                <p class="text-3xl mt-8 text-white/80">Каждый рубль — это километр дрифта и улыбка на складе.</p>
+                <p class="mt-6 text-white/60">Спасибо, братан. Я не забуду.</p>
+                
+                <div class="mt-12 flex gap-4 flex-wrap">
+                    <button onclick="donate(500)" 
+                            class="flex-1 min-w-[140px] py-6 bg-gradient-to-br from-[#00ff9d] to-emerald-400 text-black rounded-3xl text-2xl font-semibold hover:scale-110 flex flex-col items-center justify-center shadow-xl">
+                        <span class="text-4xl">⛽</span>
+                        500 ₽<br><span class="text-sm font-normal opacity-75">на полный бак</span>
+                    </button>
+                    <button onclick="donate(1000)" 
+                            class="flex-1 min-w-[140px] py-6 bg-gradient-to-br from-[#00ff9d] to-emerald-400 text-black rounded-3xl text-2xl font-semibold hover:scale-110 flex flex-col items-center justify-center shadow-xl">
+                        <span class="text-4xl">🔥</span>
+                        1000 ₽<br><span class="text-sm font-normal opacity-75">на масло и фильтры</span>
+                    </button>
+                    <button onclick="donate(3000)" 
+                            class="flex-1 min-w-[140px] py-6 bg-gradient-to-br from-[#00ff9d] to-emerald-400 text-black rounded-3xl text-2xl font-semibold hover:scale-110 flex flex-col items-center justify-center shadow-xl">
+                        <span class="text-4xl">🏆</span>
+                        3000 ₽<br><span class="text-sm font-normal opacity-75">VIP-дрифт</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="md:col-span-7 bg-white/5 border border-white/10 rounded-3xl p-12">
+                <h3 class="text-4xl font-semibold mb-8">Или напиши мне лично</h3>
+                <div class="space-y-6">
+                    <a href="https://t.me/vanya_drift" target="_blank" 
+                       class="flex items-center justify-between group bg-black/60 hover:bg-[#00ff9d] hover:text-black rounded-3xl px-8 py-7 text-2xl">
+                        <div class="flex items-center gap-4">
+                            <i class="fa-brands fa-telegram text-4xl"></i>
+                            <span>Telegram @vanya_drift</span>
+                        </div>
+                        <i class="fa-solid fa-arrow-right group-hover:rotate-45"></i>
+                    </a>
+                    <a href="#" onclick="fakeCall()" 
+                       class="flex items-center justify-between group bg-black/60 hover:bg-[#00ff9d] hover:text-black rounded-3xl px-8 py-7 text-2xl">
+                        <div class="flex items-center gap-4">
+                            <i class="fa-solid fa-phone text-4xl"></i>
+                            <span>+7 (999) 555-88-77</span>
+                        </div>
+                        <i class="fa-solid fa-arrow-right group-hover:rotate-45"></i>
+                    </a>
+                </div>
+                
+                <div class="text-center text-sm text-white/40 mt-12">
+                    Уже 47 человек заправили меня сегодня. Ты следующий?
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTACT -->
+    <footer class="bg-black py-16 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-8 text-center">
+            <div class="flex justify-center gap-8 text-4xl mb-8">
+                <i onclick="window.location.href='https://instagram.com'" class="fa-brands fa-instagram hover:text-[#00ff9d] cursor-pointer"></i>
+                <i onclick="window.location.href='https://t.me'" class="fa-brands fa-telegram hover:text-[#00ff9d] cursor-pointer"></i>
+                <i onclick="window.location.href='https://vk.com'" class="fa-brands fa-vk hover:text-[#00ff9d] cursor-pointer"></i>
+            </div>
+            <p class="text-white/50">© Ваня 2026 • Сделано с любовью к тачкам и полкам</p>
+            <p class="text-xs text-white/30 mt-4">Если ты Дэн — пиши, может теперь возьмёшь? 😉</p>
+        </div>
+    </footer>
+
+    <!-- DONATE MODAL -->
+    <div id="donateModal" onclick="if(event.target.id === 'donateModal') hideModal()" 
+         class="hidden fixed inset-0 bg-black/80 backdrop-blur-xl z-[9999] flex items-center justify-center">
+        <div onclick="event.stopImmediatePropagation()" 
+             class="modal bg-[#111] w-full max-w-md mx-4 rounded-3xl p-10 text-center">
+            <div id="modalContent">
+                <h2 class="text-5xl font-semibold mb-6">СПАСИБО, БРО! 💚</h2>
+                <p id="modalText" class="text-2xl mb-8"></p>
+                <div class="text-[120px] mb-8">🚗💨</div>
+                <button onclick="hideModal()" 
+                        class="w-full py-6 text-3xl font-bold bg-[#00ff9d] text-black rounded-3xl">
+                    ПОГНАЛИ ДАЛЬШЕ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tailwind config
+        function initializeTailwind() {
+            return {
+                config(userConfig = {}) {
+                    return {
+                        configUser: userConfig,
+                        theme: {
+                            extend: {
+                                colors: {
+                                    neon: '#00ff9d'
+                                }
+                            }
+                        }
+                    }
+                },
+                theme(userConfig = {}) {
+                    return {
+                        ...this.defaultTheme(),
+                        ...this.config(userConfig).theme
+                    }
+                },
+                defaultTheme() {
+                    return {
+                        extend: {}
+                    }
+                }
+            }
+        }
+        
+        // Инициализация Tailwind
+        document.addEventListener('DOMContentLoaded', () => {
+            const config = initializeTailwind().theme()
+            return {
+                configUser: {},
+                theme: config
+            }
+        })
+        
+        // Анимация появления секций
+        function animateSections() {
+            const sections = document.querySelectorAll('.section')
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible')
+                    }
+                })
+            }, { threshold: 0.15 })
+            
+            sections.forEach(section => observer.observe(section))
+        }
+        
+        // Донат функция
+        function donate(amount) {
+            const messages = {
+                500: "500 ₽ — полный бак 98-го залит! Теперь можно дрифтить весь вечер 🔥",
+                1000: "1000 ₽ — масло, фильтры и ещё на кофе после смены. Ты легенда!",
+                3000: "3000 ₽ — VIP-дрифт активирован! Снимаю видео специально для тебя!"
+            }
+            
+            const modal = document.getElementById('donateModal')
+            const textEl = document.getElementById('modalText')
+            
+            textEl.innerHTML = messages[amount] || `Спасибо за ${amount} ₽! На бензин улетает прямо сейчас!`
+            modal.classList.remove('hidden')
+            modal.classList.add('flex')
+            
+            // Конфетти
+            createConfetti()
+        }
+        
+        function hideModal() {
+            const modal = document.getElementById('donateModal')
+            modal.classList.add('hidden')
+            modal.classList.remove('flex')
+        }
+        
+        // Простое конфетти
+        function createConfetti() {
+            for (let i = 0; i < 80; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div')
+                    confetti.textContent = ['🚗', '💨', '⛽', '🔥'][Math.floor(Math.random() * 4)]
+                    confetti.style.position = 'fixed'
+                    confetti.style.left = Math.random() * 100 + 'vw'
+                    confetti.style.top = '-50px'
+                    confetti.style.fontSize = '2rem'
+                    confetti.style.zIndex = '99999'
+                    confetti.style.transform = `rotate(${Math.random() * 360}deg)`
+                    document.body.appendChild(confetti)
+                    
+                    const duration = Math.random() * 3000 + 2000
+                    const angle = Math.random() * 80 - 40
+                    
+                    confetti.animate([
+                        { transform: `translateY(0) rotate(0deg)` },
+                        { transform: `translateY(${window.innerHeight + 100}px) rotate(${angle * 8}deg)` }
+                    ], {
+                        duration: duration,
+                        easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                    })
+                    
+                    setTimeout(() => confetti.remove(), duration)
+                }, i * 3)
+            }
+        }
+        
+        function fakeCall() {
+            const modal = document.getElementById('donateModal')
+            const textEl = document.getElementById('modalText')
+            
+            textEl.innerHTML = `📲 ЗВОНОК ИДЁТ...<br><span class="text-4xl mt-4 block">+7 (999) 555-88-77</span><br>Ваня уже на связи!`
+            modal.classList.remove('hidden')
+            modal.classList.add('flex')
+            
+            setTimeout(() => {
+                textEl.innerHTML += `<br><br><span class="text-[#00ff9d]">Ваня: «Алло, братан! Что по тачкам?»</span>`
+            }, 1800)
+        }
+        
+        // Запуск всего
+        window.onload = () => {
+            animateSections()
+            
+            // Пасхалка — нажми на эмодзи в хедере
+            console.log('%c🚗 Ваня одобряет этот сайт. Дрифт включён!', 'color:#00ff9d; font-size:13px')
+        }
+    </script>
+</body>
+</html>
